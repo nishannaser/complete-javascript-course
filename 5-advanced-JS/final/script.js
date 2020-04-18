@@ -1,19 +1,19 @@
 /////////////////////////////
 // Lecture: Function constructor
-/*
+
 var john = {
     name: 'John',
     yearOfBirth: 1990,
     job: 'teacher'
 };
 
-var Person = function(name, yearOfBirth, job) {
+var Person = function (name, yearOfBirth, job) {
     this.name = name;
     this.yearOfBirth = yearOfBirth;
     this.job = job;
 }
 
-Person.prototype.calculateAge  = function() {
+Person.prototype.calculateAge = function () {
     console.log(2016 - this.yearOfBirth);
 };
 
@@ -30,15 +30,15 @@ mark.calculateAge();
 console.log(john.lastName);
 console.log(jane.lastName);
 console.log(mark.lastName);
-*/
+
 
 
 
 /////////////////////////////
 // Lecture: Object.create
-/*
+
 var personProto = {
-    calculateAge: function() {
+    calculateAge: function () {
         console.log(2016 - this.yearOfBirth);
     }
 };
@@ -49,24 +49,28 @@ john.yearOfBirth = 1990;
 john.job = 'teacher';
 
 var jane = Object.create(personProto, {
-    name: { value: 'Jane' },
-    yearOfBirth: { value: 1969 },
-    job: { value: 'designer' }
+    name: {
+        value: 'Jane'
+    },
+    yearOfBirth: {
+        value: 1969
+    },
+    job: {
+        value: 'designer'
+    }
 });
-*/
 
 
 
 /////////////////////////////
 // Lecture: Primitives vs objects
-/*
+
 // Primitives
 var a = 23;
 var b = a;
 a = 46;
 console.log(a);
 console.log(b);
-
 
 
 // Objects
@@ -95,13 +99,13 @@ change(age, obj);
 
 console.log(age);
 console.log(obj.city);
-*/
+
 
 
 
 /////////////////////////////
 // Lecture: Passing functions as arguments
-/*
+
 var years = [1990, 1965, 1937, 2005, 1998];
 
 function arrayCalc(arr, fn) {
@@ -135,24 +139,24 @@ var rates = arrayCalc(ages, maxHeartRate);
 
 console.log(ages);
 console.log(rates);
-*/
+
 
 
 
 /////////////////////////////
 // Lecture: Functions returning functions
-/*
+
 function interviewQuestion(job) {
     if (job === 'designer') {
-        return function(name) {
+        return function (name) {
             console.log(name + ', can you please explain what UX design is?');
         }
     } else if (job === 'teacher') {
-        return function(name) {
+        return function (name) {
             console.log('What subject do you teach, ' + name + '?');
         }
     } else {
-        return function(name) {
+        return function (name) {
             console.log('Hello ' + name + ', what do you do?');
         }
     }
@@ -169,13 +173,13 @@ designerQuestion('Mark');
 designerQuestion('Mike');
 
 interviewQuestion('teacher')('Mark');
-*/
+
 
 
 
 /////////////////////////////
 // Lecture: IIFE
-/*
+
 function game() {
     var score = Math.random() * 10;
     console.log(score >= 5);
@@ -195,16 +199,16 @@ game();
     var score = Math.random() * 10;
     console.log(score >= 5 - goodLuck);
 })(5);
-*/
+
 
 
 
 /////////////////////////////
 // Lecture: Closures
-/*
+
 function retirement(retirementAge) {
     var a = ' years left until retirement.';
-    return function(yearOfBirth) {
+    return function (yearOfBirth) {
         var age = 2016 - yearOfBirth;
         console.log((retirementAge - age) + a);
     }
@@ -222,7 +226,7 @@ retirementIceland(1990);
 
 
 function interviewQuestion(job) {
-    return function(name) {
+    return function (name) {
         if (job === 'designer') {
             console.log(name + ', can you please explain what UX design is?');
         } else if (job === 'teacher') {
@@ -234,22 +238,22 @@ function interviewQuestion(job) {
 }
 
 interviewQuestion('teacher')('John');
-*/
+
 
 
 
 /////////////////////////////
 // Lecture: Bind, call and apply
-/*
+
 var john = {
     name: 'John',
     age: 26,
     job: 'teacher',
-    presentation: function(style, timeOfDay) {
+    presentation: function (style, timeOfDay) {
         if (style === 'formal') {
-            console.log('Good ' + timeOfDay + ', Ladies and gentlemen! I\'m ' +  this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old.');
+            console.log('Good ' + timeOfDay + ', Ladies and gentlemen! I\'m ' + this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old.');
         } else if (style === 'friendly') {
-            console.log('Hey! What\'s up? I\'m ' +  this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old. Have a nice ' + timeOfDay + '.');
+            console.log('Hey! What\'s up? I\'m ' + this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old. Have a nice ' + timeOfDay + '.');
         }
     }
 };
@@ -298,7 +302,7 @@ var ages = arrayCalc(years, calculateAge);
 var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20));
 console.log(ages);
 console.log(fullJapan);
-*/
+
 
 
 
